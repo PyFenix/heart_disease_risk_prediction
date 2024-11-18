@@ -1,57 +1,136 @@
-ds_project_template
-==============================
+# Heart Disease Risk Prediction
 
-A template for data science projects
+This project aims to predict heart disease risk using machine learning techniques. It fetches the Heart Disease dataset from the UCI Machine Learning Repository and processes it for analysis.
 
-Project Organization
-------------
+---
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+## Table of Contents
 
+- [Project Overview](#project-overview)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+  1. [Clone the Repository](#1-clone-the-repository)
+  2. [Install `uv`](#2-install-uv)
+  3. [Initialize the Project and Virtual Environment](#3-initialize-the-project-and-virtual-environment)
+  4. [Install Dependencies](#4-install-dependencies)
+- [Usage](#usage)
+  - [Activate the Virtual Environment](#activate-the-virtual-environment)
+  - [Run `make_dataset.py`](#run-make_datasetpy)
 
---------
+---
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+## Project Overview
+
+This project:
+
+- Fetches the Heart Disease dataset from the UCI Machine Learning Repository.
+- Processes and prepares the data for analysis.
+- Provides a foundation for building predictive models to assess heart disease risk.
+
+---
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Operating System**: Linux, macOS, or Windows Subsystem for Linux (WSL).
+- **Python Version**: Python 3.12 or higher.
+- **Git**: Installed on your system.
+- **`pip`**: Python package installer is available.
+
+---
+
+## Installation
+
+Follow these steps to set up the project on your local machine.
+
+### 1. Clone the Repository
+
+Open your terminal and run:
+
+```bash
+git clone https://github.com/your_username/heart_disease_risk_prediction.git
+cd heart_disease_risk_prediction
+  ```
+
+### 2. Install `uv`
+
+[`uv`](https://github.com/astral-sh/uv) is a Python project management tool that simplifies environment and dependency management.
+
+#### a. Upgrade `pip`
+
+- Upgrade `pip` to the latest version using
+
+```bash
+pip install --upgrade pip
+```
+
+#### b. Install `uv`
+
+- Install `uv` globally using `pip install uv`.
+
+```bash
+pip install uv
+```
+
+#### c. Verify Installation
+
+- Check that `uv` is installed by running `uv --version`. You should see the version number printed.
+
+```bash
+uv --version
+```
+
+  You should see the version number printed.
+
+---
+
+### 3. Initialize the Project and Virtual Environment
+
+Use `uv` to initialize the project, which will create a virtual environment and set up project configurations based on `pyproject.toml`:
+
+- Run `uv init` to initialize the project.
+
+```bash
+uv init
+```
+
+### 4. Install Dependencies
+
+Install all required dependencies specified in `pyproject.toml`:
+
+- Use `uv install` to install dependencies.
+
+```bash
+uv install
+```
+
+## Usage
+
+### Activate the Virtual Environment
+
+Before running any scripts, activate the virtual environment:
+
+- Activate the virtual environment by running `source .venv/bin/activate`.
+
+```bash
+source .venv/bin/activate
+```
+
+You should see the virtual environment's name in your terminal prompt.
+
+### Run `make_dataset.py`
+
+Fetch and prepare the dataset by running the `make_dataset.py` script:
+
+- Run `python src/data/make_dataset.py [output_file_path]`, where `[output_file_path]` is the desired location for the saved dataset, such as `data/raw/heart_disease_original_data.csv`.
+
+```bash
+python src/data/make_dataset.py data/raw/heart_disease_original_data.csv
+```
+
+This command will:
+
+- Fetch the Heart Disease dataset from the UCI repository.
+- Save the dataset to the specified path (e.g., `data/raw/heart_disease_original_data.csv`).
+- Create the directory for the dataset if it doesn’t already exist.
