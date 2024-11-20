@@ -5,14 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "awscli>=1.36.6",
     "click>=8.1.7",
+    "fastapi>=0.115.5",
     "jupyter>=1.1.1",
+    "localstack>=3.8.1",
     "matplotlib>=3.9.2",
     "pandas>=2.2.3",
+    "pydantic>=2.9.2",
     "python-dotenv>=1.0.1",
     "ruff>=0.7.4",
     "scikit-learn>=1.5.2",
     "seaborn>=0.13.2",
     "ucimlrepo>=0.0.7",
+    "uvicorn>=0.32.0",
     "xgboost>=2.1.2",
 ]

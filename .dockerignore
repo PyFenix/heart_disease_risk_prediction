@@ -1,0 +1,13 @@
+# Exclude all files except app.py, models/, and requirements.txt
+*
+!app.py
+!models/
+!requirements.txt
+
+# Ignore Python cache files
+*.pyc
+__pycache__/
+
+# Ignore logs and environment files
+*.log
+.env
