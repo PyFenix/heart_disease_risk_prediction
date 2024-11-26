@@ -6,6 +6,20 @@ from utils import load_or_download_data
 
 
 class DataProcessor:
+    """
+    Class for processing heart disease data.
+
+    Parameters:
+    - data (pd.DataFrame): The raw dataset.
+    - numerical_cols (list): List of numerical column names.
+    - categorical_cols (list): List of categorical column names.
+    - target_col (str): Name of the target variable column.
+
+    Methods:
+    - clean_data(): Cleans the data by handling missing values, duplicates, etc.
+    - preprocess_data(): Encodes categorical variables, scales numerical variables.
+    - split_data(): Splits the data into training, validation, and test sets.
+    """
     def __init__(self, dataset, numerical_cols, categorical_cols, target_col):
         self.numerical_cols = numerical_cols
         self.categorical_cols = categorical_cols

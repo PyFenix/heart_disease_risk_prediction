@@ -19,6 +19,9 @@ categorical_cols = ["sex", "cp", "fbs", "restecg", "exang", "slope", "ca", "thal
 class PredictionRequest(BaseModel):
     features: dict  # Expecting a dictionary of column_name: value
 
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the Heart Risk Prediction API. Visit /docs for API documentation."}
 
 @app.post("/predict/")
 async def predict(request: PredictionRequest):
@@ -57,7 +60,7 @@ async def predict(request: PredictionRequest):
 # uvicorn app:app --host 0.0.0.0 --port 8000
 # open http://127.0.0.1:8000/docs
 # test the 'predict/' endpoint
-# Click the "Try it out!" button and paste the content of request.json
+# Click the "Try it out" button and paste the content of request.json
 
 # Alternatively use the terminal
 # curl -X POST "http://127.0.0.1:8000/predict/" \

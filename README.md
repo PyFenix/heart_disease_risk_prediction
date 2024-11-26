@@ -134,3 +134,5 @@ This command will:
 - Fetch the Heart Disease dataset from the UCI repository.
 - Save the dataset to the specified path (e.g., `data/raw/heart_disease_original_data.csv`).
 - Create the directory for the dataset if it doesn’t already exist.
+
+Note: this part is optional, further down the path, I wrote another function that checks for the data to load it into a dataframe, else dowload it from the source
