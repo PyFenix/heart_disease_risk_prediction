@@ -7,6 +7,7 @@ from sklearn.metrics import (
     f1_score,
 )
 import pickle
+import os
 
 
 class ModelTrainer:
@@ -83,9 +84,7 @@ class HyperparameterTuner:
 
     def get_best_models(self):
         # Extract the best-performing model
-        self.best_model = max(
-            self.best_models.items(), key=lambda x: x[1]["best_score"]
-        )
+        self.best_model = max(self.best_models.items(), key=lambda x: x[1]["best_score"])
 
         # Display the best model's information
         best_model_name, best_model_info = self.best_model
@@ -108,6 +107,11 @@ class HyperparameterTuner:
             1
         ]  # [0] is the model name, [1] is the details
         best_estimator = best_model_info["best_estimator"]
+
+            # Ensure the directory exists
+        directory = os.path.dirname(filepath)
+        if directory and not os.path.exists(directory):
+            os.makedirs(directory)
 
         # Save to pickle
         with open(filepath, "wb") as f:

@@ -5,7 +5,7 @@ from xgboost import XGBClassifier
 
 # Define the models in a dictionary
 models = {
-    'Logistic Regression': LogisticRegression(),
+    'Logistic Regression': LogisticRegression(max_iter=1000),
     'Support Vector Classifier': SVC(),
     'XGBoost Classifier': XGBClassifier(eval_metric="logloss", enable_categorical=True),
     'Decision Tree': DecisionTreeClassifier()

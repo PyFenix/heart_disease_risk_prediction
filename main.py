@@ -34,7 +34,7 @@ def main():
 
     # Step 1: Download data
     logger.info("Downloading data...")
-    heart_df = load_or_download_data()
+    heart_df = load_or_download_data(output_file="data/raw/heart_disease_original_data.csv", script_path="src/data/make_dataset.py")
     logger.info("Data downloaded successfully.")
 
     # Step 2: Preprocess data
@@ -44,8 +44,8 @@ def main():
     # Define the categorical columns by excluding numerical ones
     categorical_cols = [col for col in heart_df.columns if col not in numerical_cols]
 
-    logger.info("Categorical Columns:", categorical_cols)
-    logger.info("Numerical Columns:", numerical_cols)
+    logger.info(f"Categorical Columns: {categorical_cols}")
+    logger.info(f"Numerical Columns: {numerical_cols}")
     logger.info("Preprocessing data...")
     data_processor = DataProcessor(
         heart_df,
@@ -68,7 +68,7 @@ def main():
     logger.info("Tuning hyperparameters...")
 
     model_tuner = HyperparameterTuner(model_param_grids)
-    # best_models = model_tuner.tune_models(X_train=X_train, y_train=y_train)
+    model_tuner.tune_models(X_train=X_train, y_train=y_train)
     # Selecting the best performing model
     best_model = model_tuner.get_best_models()
     logger.info("Hyperparameters tuned successfully.")
@@ -76,7 +76,7 @@ def main():
 
     # Step 5: Save the best model
     logger.info("Saving the best model...")
-    model_tuner.save_best_model_to_pickle(filepath="/models/trained_model")
+    model_tuner.save_best_model_to_pickle(filepath="models/trained_model.pkl")
     logger.info("Model saved successfully.")
 
 if __name__ == '__main__':

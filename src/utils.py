@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 
 
-def load_or_download_data(output_file="../data/raw/heart_disease_original_data.csv"):
+def load_or_download_data(output_file="../data/raw/heart_disease_original_data.csv", script_path="../src/data/make_dataset.py"):
     """
     Check if the data file exists; if not, run make_dataset.py to generate it.
 
@@ -16,7 +16,7 @@ def load_or_download_data(output_file="../data/raw/heart_disease_original_data.c
     """
     # Define paths relative to the current working directory
     data_file = Path(output_file)
-    script_path = Path("../src") / "data" / "make_dataset.py"
+    script_path = Path(script_path)
 
     # Check if the data file exists
     if data_file.exists():

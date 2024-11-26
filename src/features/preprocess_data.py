@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # from sklearn.preprocessing import LabelEncoder
-from utils import load_or_download_data
+# from utils import load_or_download_data
 
 
 class DataProcessor:
@@ -66,25 +66,25 @@ class DataProcessor:
         return X_train, y_train, X_test, y_test, X_val, y_val
 
 
-def main():
-    # Initialize DataProcessor
-    heart_df = load_or_download_data()
-    numerical_cols = ["age", "trestbps", "chol", "thalach", "oldpeak"]
-    target_col = "num"
-    categorical_cols = [
-        col for col in heart_df.columns if col not in numerical_cols + [target_col]
-    ]
+# def main():
+#     # Initialize DataProcessor
+#     heart_df = load_or_download_data()
+#     numerical_cols = ["age", "trestbps", "chol", "thalach", "oldpeak"]
+#     target_col = "num"
+#     categorical_cols = [
+#         col for col in heart_df.columns if col not in numerical_cols + [target_col]
+#     ]
 
-    data_processor = DataProcessor(
-        heart_df,
-        numerical_cols=numerical_cols,
-        categorical_cols=categorical_cols,
-        target_col=target_col,
-    )
+#     data_processor = DataProcessor(
+#         heart_df,
+#         numerical_cols=numerical_cols,
+#         categorical_cols=categorical_cols,
+#         target_col=target_col,
+#     )
 
-    # Split the data
-    X_train, y_train, X_val, y_val, X_test, y_test = (
-        data_processor.clean_data().preprocess_data().split_data()
-    )
+#     # Split the data
+#     X_train, y_train, X_val, y_val, X_test, y_test = (
+#         data_processor.clean_data().preprocess_data().split_data()
+#     )
 
-    return X_train, y_train, X_test, y_test, X_val, y_val
+#     return X_train, y_train, X_test, y_test, X_val, y_val

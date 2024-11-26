@@ -61,11 +61,11 @@ class Ec2InstanceStack(NestedStack):
             connection=ec2.Port.tcp(22),
             description="Allow SSH access from my IP",
         )
-                # Allow HTTP access from anywhere
+        # Allow HTTP access from anywhere
         security_group.add_ingress_rule(
-            peer=ec2.Peer.any_ipv4(),
+            peer=my_ip_ec2,
             connection=ec2.Port.tcp(80),
-            description="Allow HTTP access from anywhere",
+            description="Allow HTTP access from my IP",
         )
 
         # Allow SSH access from EC2 Instance Connect IP addresses
